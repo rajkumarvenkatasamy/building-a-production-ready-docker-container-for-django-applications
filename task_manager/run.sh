@@ -1,3 +1,3 @@
 #!/bin/bash
 
-poetry run uvicorn task_manager.asgi:application --host 0.0.0.0 --port 8000
+poetry run python manage.py runserver 0.0.0.0:8000
