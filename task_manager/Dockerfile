@@ -13,10 +13,14 @@ COPY pyproject.toml poetry.lock /app/
 # Install dependencies
 RUN pip install --upgrade pip && pip install poetry
 
-RUN poetry install
+RUN poetry install --no-root
 
 # Copy the entire project
 COPY . /app/
 
+# set PYTHONPATH
+ENV PYTHONPATH=/app:/app/.venv/bin:
+ENV PATH=/app:/app/.venv/bin:$PATH
+
 # Start the app
-CMD ["./run.sh"]
+CMD ["sh", "./run.sh"]
