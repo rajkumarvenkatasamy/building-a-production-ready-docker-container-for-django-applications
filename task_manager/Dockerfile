@@ -7,15 +7,12 @@ ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 # Set working directory
 WORKDIR /app
 
-# Copy project files
-COPY pyproject.toml poetry.lock /app/
+# Copy the entire project
+COPY . /app/
 
 # Install dependencies
 RUN pip install --upgrade pip && pip install poetry
 
-RUN poetry install --no-dev
-
-# Copy the entire project
-COPY . /app/
+RUN poetry install
 
 CMD ["./run.sh"]
