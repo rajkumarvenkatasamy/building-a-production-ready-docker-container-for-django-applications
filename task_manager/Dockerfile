@@ -13,7 +13,7 @@ COPY pyproject.toml poetry.lock /app/
 # Install dependencies
 RUN pip install --upgrade pip && pip install poetry
 
-RUN poetry install --no-dev
+RUN poetry install --no-root
 
 # Copy the entire project
 COPY . /app/
@@ -39,5 +39,6 @@ ENV PATH=/app:/app/.venv/bin:/app/.venv/lib/python3.11/site-packages/:$PATH
 
 # Expose port 8000
 EXPOSE 8000
-# CMD ["-m", "site"]
-CMD ["-m", "entrypoint.py"]
+
+# Start the application
+CMD ["entrypoint.py"]
