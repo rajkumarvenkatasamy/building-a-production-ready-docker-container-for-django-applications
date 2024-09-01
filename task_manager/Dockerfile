@@ -1,5 +1,4 @@
-# Stage 1: Build Environment
-FROM python:3.11-slim AS build-env
+FROM python:3.11-slim
 
 # # Create the virtualenv inside the project’s root directory.
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
