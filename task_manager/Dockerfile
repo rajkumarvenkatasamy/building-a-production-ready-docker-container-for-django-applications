@@ -18,6 +18,8 @@ RUN poetry install --no-root
 # Copy the entire project
 COPY . /app/
 
+RUN poetry run python manage.py collectstatic --noinput
+
 # Stage 2: Runtime Environment
 FROM gcr.io/distroless/python3
 
