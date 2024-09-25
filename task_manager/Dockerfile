@@ -1,12 +1,12 @@
 FROM python:3.11-slim
 
-# # Create the virtualenv inside the project’s root directory.
+# Create the virtualenv inside the project's root directory
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Set working directory
 WORKDIR /app
 
-# Copy the dependency requirements files
+# Copy project files
 COPY pyproject.toml poetry.lock /app/
 
 # Install dependencies
@@ -17,7 +17,7 @@ RUN poetry install --no-root
 # Copy the entire project
 COPY . /app/
 
-# set PYTHONPATH
+# Set PYTHONPATH
 ENV PYTHONPATH=/app:/app/.venv/bin:
 ENV PATH=/app:/app/.venv/bin:$PATH
 
