@@ -1,7 +1,7 @@
 # Stage 1: Build Environment
 FROM python:3.11-slim AS build-env
 
-# # Create the virtualenv inside the project’s root directory.
+# Create the virtualenv inside the project's root directory
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Set working directory
@@ -35,7 +35,7 @@ WORKDIR /app
 COPY --from=build-env /app /app
 # COPY --from=build-env /app/.venv/bin/uvicorn /app/uvicorn
 
-# set PYTHONPATH
+# Set PYTHONPATH
 ENV PYTHONPATH=/app:/app/.venv/bin:/app/.venv/lib/python3.11/site-packages/
 ENV PATH=/app:/app/.venv/bin:/app/.venv/lib/python3.11/site-packages/:$PATH
 
