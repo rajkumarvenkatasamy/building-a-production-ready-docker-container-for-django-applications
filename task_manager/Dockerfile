@@ -24,7 +24,7 @@ RUN poetry run python manage.py collectstatic --noinput
 FROM gcr.io/distroless/python3
 
 # Set environment variables
-# This prevents Python from writing out pyc files
+# This prevents Python from writing out .pyc files
 ENV PYTHONDONTWRITEBYTECODE=1
 # This keeps Python from buffering stdin/stdout
 ENV PYTHONUNBUFFERED=1
